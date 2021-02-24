@@ -53,6 +53,39 @@ class SLL{
         }
         return arr        
     }
+
+    max(){
+        var runner = this.head
+        var max = runner.value
+        while(runner){
+            if(runner.value > max){
+                max = runner.value
+            }
+            runner = runner.next
+        }
+        return max
+    }
+
+    min(){
+        var runner = this.head
+        var min = runner.value
+        while(runner){
+            if(runner.value < min){
+                min = runner.value
+            }
+            runner = runner.next
+        }
+        return min
+    }
+    average(){
+        var running_sum = 0
+        var runner = this.head
+        while(runner){
+            running_sum += runner.value
+            runner = runner.next
+        }
+        return running_sum/this.length()
+    }
 }
 
 
@@ -70,11 +103,12 @@ new_SLL.addFront(2)
 new_SLL.addFront(4)
 new_SLL.addFront(6)
 new_SLL.view()
-new_SLL.removeFront()
 console.log("")
-new_SLL.view()
+// new_SLL.view()
 // console.log(new_SLL.front())
 // console.log(new_SLL.contains(14))
-console.log(new_SLL.length())
-console.log(new_SLL.display())
-
+// console.log(new_SLL.length())
+// console.log(new_SLL.display())
+console.log(new_SLL.max())
+console.log(new_SLL.min())
+console.log(new_SLL.average())
