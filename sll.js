@@ -42,6 +42,17 @@ class SLL{
         }
         return len
     }
+
+    display(){
+        var arr = []
+        var runner = this.head;
+        while(runner){
+            arr.push(runner.value)
+            runner = runner.next
+            
+        }
+        return arr        
+    }
 }
 
 
@@ -65,3 +76,5 @@ new_SLL.view()
 // console.log(new_SLL.front())
 // console.log(new_SLL.contains(14))
 console.log(new_SLL.length())
+console.log(new_SLL.display())
+
