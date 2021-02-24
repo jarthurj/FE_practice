@@ -22,6 +22,16 @@ class SLL{
             runner = runner.next
         }
     }
+    contains(value){
+        var runner = this.head;
+        while(runner){
+            if(runner.value === value){
+                return true
+            }
+            runner = runner.next
+        }
+        return false
+    }
 }
 
 
@@ -43,3 +53,4 @@ new_SLL.removeFront()
 console.log("")
 new_SLL.view()
 console.log(new_SLL.front())
+console.log(new_SLL.contains(14))
