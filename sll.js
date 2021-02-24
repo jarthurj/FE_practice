@@ -32,6 +32,16 @@ class SLL{
         }
         return false
     }
+
+    length(){
+        var len = 0
+        var runner = this.head;
+        while(runner){
+            len++;
+            runner = runner.next
+        }
+        return len
+    }
 }
 
 
@@ -52,5 +62,6 @@ new_SLL.view()
 new_SLL.removeFront()
 console.log("")
 new_SLL.view()
-console.log(new_SLL.front())
-console.log(new_SLL.contains(14))
+// console.log(new_SLL.front())
+// console.log(new_SLL.contains(14))
+console.log(new_SLL.length())
