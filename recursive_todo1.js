@@ -33,44 +33,13 @@
 // console.log(fact(6.5))
 
 function flashFill(canvas2d, startXY, newColor){
-    console.log(startXY)
-    console.log(canvas2d)
-    if(canvas2d[startXY[0]-1][startXY[1]]===canvas2d[startXY[0]][startXY[1]]){ //up
-        console.log("up")
-        if(canvas2d[startXY[0]][startXY[1]-1]===canvas2d[startXY[0]][startXY[1]]){//left
-            console.log("up left")
-            canvas2d = canvas2d[startXY[0]].slice(0,startXY[1]+1)
-            return flashFill(canvas2d,[startXY[0],startXY[1]-1], newColor)
-        }
-        if(canvas2d[startXY[0]][startXY[1]+1]===canvas2d[startXY[0]][startXY[1]]){//right
-            console.log("up right")
-            canvas2d = canvas2d.slice(startXY[0]+1,canvas2d.length)
-            return flashFill(canvas2d,[startXY[0],startXY[1]+1], newColor)
-        }
-        
-        // canvas2d[startXY[0],startXY[1]] = newColor
-        // return canvas2d
-        
-        return flashFill(canvas2d.slice(0,startXY[0]),[startXY[0]-1,startXY[1]], newColor)
+    if((startXY[0]===0||startXY[0]===canvas2d.length-1||startXY[1]===0||startXY[1]===canvas2d.length-1)&&startXY){
+        return 
     }
-    if(canvas2d[startXY[0]+1][startXY[1]]===canvas2d[startXY[0]][startXY[1]]){//down
-        console.log("down")
-        if(canvas2d[startXY[0]][startXY[1]-1]===canvas2d[startXY[0]][startXY[1]]){//left
-            console.log("down left")
-            canvas2d=canvas2d[startXY[0]].slice(0,startXY[1])
-            return flashFill(canvas2d,[startXY[0],startXY[1]-1], newColor)
-        }
-        if(canvas2d[startXY[0]][startXY[1]+1]===canvas2d[startXY[0]][startXY[1]]){//right
-            console.log("down right")
-            canvas2d=canvas2d.slice(startXY[0]+1,canvas2d.length)
-            return flashFill(canvas2d,[startXY[0],startXY[1]+1], newColor)
-        }
-        // canvas2d[startXY[0],startXY[1]] = newColor
-        // return canvas2d
-        
-        return flashFill(canvas2d.slice(0,startXY[0]),[startXY[0]-1,startXY[1]], newColor)
-    }
-    canvas2d[startXY[0],startXY[1]] = newColor
+    flashFill(canvas2d,[startXY[0]-1,startXY[1]], newColor)//north
+    flashFill(canvas2d,[startXY[0]+1,startXY[1]], newColor,)//south
+    flashFill(canvas2d,[startXY[0],startXY[1]-1], newColor)//west
+    flashFill(canvas2d,[startXY[0],startXY[1]+1], newColor)//easy
     return canvas2d
 }
 
