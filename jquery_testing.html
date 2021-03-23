@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#red_button').click(function(){
+				$('#first_p').addClass("red")
+			})
+			$('#hide').click(function(){
+				$('img').hide()
+			})
+			$('#show').click(function(){
+				$('img').show()
+			})
+			$('#fade_in').click(function(){
+				$('img').fadeIn()
+			})
+			$('#fade_out').click(function(){
+				$('img').fadeOut()
+			})
+			$('#slide_up').click(function(){
+				$('img').slideDown()
+			})
+			$('#slide_down').click(function(){
+				$('img').slideUp()
+			})
+			$('#toggle').click(function(){
+				$('img').toggle()
+			})
+			$('#slideToggle').click(function(){
+				$('img').slideToggle()
+			})
+
+			$('#bna').click(function(){
+				$('#butt > p').before('<p>butts</p>')
+				$('#butt > p').after('<p>butts</p>')
+			})
+			$('#butt').append('<p>THIS WAS APPENDED WITH .APPEND</p>')
+			$('#htmler').append($('#image_play').html())
+			// .attr
+			// .val
+			// .text
+			// .insert
+		})
+	</script>
+</head>
+<body>
+	<style>
+		.red {
+			color: #ff0000;
+		}
+	</style>
+
+	<div>
+		<h1>Add Class</h1>
+		<button type="button" id='red_button'>Click Me</button>
+		<p id="first_p">Click the button to make this red</p>
+	</div>
+	<hr>
+	<div id="image_play">
+
+		<button id="hide">Hide Ninja Cat</button>
+		<button id="show">Show Ninja Cat</button>
+		<button id="fade_in">Fade In Ninja Cat</button>
+		<button id="fade_out">Fade Out Ninja Cat</button>
+		<button id="slide_up">Slide Up Ninja Cat</button>
+		<button id="slide_down">Slide Down Ninja Cat</button>
+		<button id="toggle">toggle Ninja Cat</button>
+		<button id="slideToggle">slideToggle Ninja Cat</button>
+		<img src="dojocat.jpg"	alt="A picture of a ninja cat" height="300px" width="300px">
+	</div>
+	<hr>
+	<div id="butt">
+		<button id="bna">Butts</button>
+		<p>This</p>
+		<p>That</p>
+		<p>You</p>
+		<p>Your Mom</p>
+		<p>Your Shoelaces</p>
+	</div>
+	<div id="htmler">
+		
+	</div>
+</body>
+</html>
