@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('img').click(function(){
+				var rand_num = Math.floor((Math.random() * 100))
+				console.log(rand_num)
+				console.log(rand_num%3)
+				if (rand_num % 3 === 0){
+					$(this).hide();
+				}
+				else if(rand_num % 3 === 1){
+					$(this).fadeOut();
+				}
+				else if(rand_num % 3 === 2){
+					$(this).slideUp();
+				}
+			})
+			$('button').click(function(){
+				$('img').show()
+			})
+		})
+	</script>
+</head>
+<body>
+	<div>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+	</div>
+	<div>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+		<img src="dojocat.jpg" alt="ninja cat" height=200px width=200px>
+	</div>
+	<button>COME BACK!!!</button>
+</body>
+</html>
