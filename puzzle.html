@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			var cat_pics = [0,1,2,3,4]
+			var ninja_pics = [0,1,2,3,4]
+			function get_number(some_arr){
+				var is_in = true
+				var pic_num = null
+				while(is_in){
+					pic_num = Math.floor(Math.random()*5)
+					if(some_arr[pic_num] === pic_num){
+						return some_arr[pic_num]
+					}
+					else{
+						continue;
+					}
+				}
+			}
+			function random_picture(){
+				var cat_or_ninja = Math.floor(Math.random()*100);
+				if (cat_or_ninja % 2 === 0){
+					var pic_num = get_number(cat_pics)
+					delete cat_pics[pic_num]
+					return ["cat",pic_num]
+				}
+				else{
+					var pic_num = get_number(ninja_pics)
+					delete ninja_pics[pic_num]
+					return ["ninja",pic_num]
+				}
+			}
+			function return_get_picture(str){
+				var index = parseInt(str.charAt(str.length-5))
+				if(str.startsWith('c')){
+
+					cat_pics[index] = index;
+					// console.log("cat  " + str)
+				}
+				else{
+					ninja_pics[index] = index;
+					// console.log("ninja  " + str)
+				}
+				return random_picture()
+			}
+			function win(){
+				var pic_name = $('#0').attr("src")
+				var pic_num = parseInt(pic_name.charAt(pic_name.length-5))
+
+				var start_char = pic_name.charAt(0)
+				// console.log("start_char:"+start_char+" pic_num:"+pic_num)
+				var count = 1
+				if(start_char==='c'){
+					for(var x=1;x<5;x++){
+						var temp_pic = $('#'+x).attr("src")
+						var temp_num = parseInt(temp_pic.charAt(temp_pic.length-5))
+						var temp_char = temp_pic.charAt(0)
+						if(temp_char==='c'&& temp_num===x){
+							count++;
+						}
+
+					}
+				}
+				else{
+					for(var x=1;x<5;x++){
+						var temp_pic = $('#'+x).attr("src")
+						var temp_num = parseInt(temp_pic.charAt(temp_pic.length-5))
+						var temp_char = temp_pic.charAt(0)
+						if(temp_char==='n'&& temp_num===x){
+							count++;
+						}
+
+					}
+				}
+			if(count===5){
+				alert("YOU WIN!!")
+			}
+
+
+
+			}
+				
+
+
+			for(var x=0;x<5;x++){
+				var pic = random_picture()
+				$("#puzzle").append("<img "+"id="+x+" src="+pic[0]+pic[1].toString()+".png>")
+			}
+
+			$("img").click(function(){
+				$(this).fadeOut()
+				var new_img = return_get_picture($(this).attr('src'))
+				$(this).attr("src",new_img[0]+new_img[1].toString()+".png")
+				// $(this).css("display","block")
+				$(this).fadeIn()
+				win()
+			})
+
+
+		})
+	</script>
+</head>
+	<style type="text/css">
+		img{
+			display: block;
+		}
+	</style>
+<body>
+	<div id="puzzle">
+	</div>
+</body>
+</html>
