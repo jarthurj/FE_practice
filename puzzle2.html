@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script rel="text/javascript">
+		$(function(){
+			$("#ninja_div").sortable();
+			$("#ninja_div").disableSelection();
+
+		})
+	</script>
+</head>
+<body>
+	<style>
+		img{
+			display: block;
+		}
+	</style>
+	<div id="ninja_div">
+		<img class="draggable" src="ninja0.png">
+		<img class="draggable" src="ninja1.png">
+		<img class="draggable" src="ninja2.png">
+		<img class="draggable" src="ninja3.png">
+		<img class="draggable" src="ninja4.png">
+	</div>
+</body>
+</html>
