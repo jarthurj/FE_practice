@@ -1,0 +1,16 @@
+
+.start_hidden {
+  display: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  cursor: pointer;
+}
+
+.caret-down::before {
+  content: "\25BC";
+  color: black;
+  cursor: pointer;
+}

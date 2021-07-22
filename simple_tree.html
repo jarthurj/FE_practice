@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CHA Pepco Project References</title>
+	<link rel="stylesheet" type="text/css" href="reset.css"> <!--Resets default css to standard the css across browsers-->
+	<link rel="stylesheet" type="text/css" href="ref_test.css">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon-32x32.PNG"/>
+</head>
+<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var past_div = "initial";
+		var current_div = "initial";
+		$('span').click(function(){
+			$(this).siblings("ul").toggle();
+			$(this).siblings("li").toggle();
+			$(this).toggleClass("caret");
+			$(this).toggleClass("caret-down");
+		});
+		$('.article').click(function(){
+			var article_id = $(this).attr("id");
+			past_div = current_div;
+			$("#"+past_div+"_div").toggle()
+			current_div = article_id;
+			$("#"+article_id+"_div").toggle()
+		});
+	});
+</script>
+</body>
+</html>
